@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  font-family: "Lobster", "Josefin Sans", Helvetica, Arial, sans-serif;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+
+}
+
+h1 {
+  color: #61dafb;
+}
+
+.buttons-scale{
+  max-width: 50%;
+}
+
+.CardTitle {
+  font-size: calc(10px + 2vmin);
+}
+
+.card {
+  min-width: 150px;
+}
+
+@media only screen and (max-width: 450px) {
+  .rowCard {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+
+
+
