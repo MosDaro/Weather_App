@@ -11,13 +11,11 @@ const TempCard = (props) => {
     } else if (scaleSymbol === "F") {
         temp = (temp_min - 273.15) * 9.0 / 5.0 + 32;
     }
-
-
     return (
-        <Card key={ "card" + props.city } className="primary card">
+        <Card key={ "card" + props.city } className="card " style={ props.isLowest ? { "opacity": "1.0" } : { "opacity": "0.8" } }>
             <Card.Body>
                 <Card.Title className="mb-2  text-muted CardTitle">{ props.city }</Card.Title>
-                <Card.Img src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-24-512.png"></Card.Img>
+                <Card.Img src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-24-512.png" alt="N/A"></Card.Img>
                 <Card.Text className="mb-2 text-muted">{ Math.round(temp) + "º" + scaleSymbol }</Card.Text>
             </Card.Body>
         </Card>
