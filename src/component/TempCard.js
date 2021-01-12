@@ -3,19 +3,11 @@ import ReactCardFlip from 'react-card-flip';
 
 
 const TempCard = (props) => {
-
-    // let flipData = JSON.stringify(props.cityInfo).replace(/\"|{|}/g, "").replace(/,/g, "\n");
-    let flipData = JSON.stringify(props.cityInfo).replace(/,/g, "\n").replace(/{|}/g, "").replace(/"/g, "");
-
-    // for (e in props.cityInfo) {
-    //     flipData += e + ": " + props.cityInfo[e] + "\n"
-    // }
-    // console.log(flipData)
-    console.log(props.cityInfo)
-    let fontSize = props.fontSize;
     const { temp_min } = props.cityInfo
     let temp = temp_min;
     let scaleSymbol = props.scale.charAt(0);
+    let fontWeight = props.fontWeight;
+
 
     // console.log(props.whoFlipped, props.city)
     if (scaleSymbol === "C") { // Celcius
@@ -23,6 +15,8 @@ const TempCard = (props) => {
     } else if (scaleSymbol === "F") {
         temp = (temp_min - 273.15) * 9.0 / 5.0 + 32;
     }
+    props.cityInfo["city"] = props.city;
+    let flipData = JSON.stringify(props.cityInfo).replace(/,/g, "\n").replace(/{|}/g, "").replace(/"/g, "").replace(/:/g, ": ");
     return (
         <>
             <ReactCardFlip isFlipped={ props.isFlipped === props.city } flipDirection="vertical">
@@ -53,7 +47,7 @@ const TempCard = (props) => {
                             className="mb-2 text-dark"
                             style={ {
                                 "position": "absolute", "top": "50%", "left": "50%", "transform": "translate(-50%, -50%)",
-                                "maxWidth": "40%", "font-size": fontSize
+                                "fontSize": "2.8vmin", "fontFamily": "Assistant, sans-serif", "fontWeight": fontWeight
                             } }
                         >
                             { flipData }
