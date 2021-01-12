@@ -7,7 +7,8 @@ class App extends Component {
   state = {
     cities: {},
     tempScale: "Kelvin",
-    loading: true
+    loading: true,
+    isFlipped: ""
   }
 
   componentDidMount() {
@@ -16,18 +17,28 @@ class App extends Component {
         response => response.json()
       ).then(
         response => {
+
           this.setState({
+            ...this.state.cities,
             cities: response,
             loading: false
           });
         }
       );
-  }
+  };
 
   tempScaleChange = (event) => {
     this.setState({
       tempScale: event
-    })
+    });
+  };
+
+  handleCardClick = (event) => {
+    event.preventDefault();
+    let parent = event.target.parentNode.id;
+    this.setState(prevState => ({
+      isFlipped: prevState.isFlipped !== parent ? parent : ""
+    }));
   }
 
   render() {
@@ -39,6 +50,8 @@ class App extends Component {
           tempScaleChange={ this.tempScaleChange }
           tempScale={ this.state.tempScale }
           loading={ this.state.loading }
+          handleCardClick={ this.handleCardClick }
+          isFlipped={ this.state.isFlipped }
         />
       </div>
     );

@@ -1,4 +1,4 @@
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Badge } from "react-bootstrap";
 import TempScale from "./TempScale";
 import TempCard from "./TempCard";
 
@@ -21,6 +21,8 @@ const LowestTemps = (props) => {
                     <>
                         {
                             cities.map(function (name, index) {
+                                if (name === "isFlipped")
+                                    return null;
                                 const { main, is_min } = props.cities[name];
                                 if (is_min) {
                                     lowest_temp_city = name;
@@ -33,6 +35,8 @@ const LowestTemps = (props) => {
                                                 cityInfo={ main }
                                                 scale={ props.tempScale }
                                                 loading={ props.loading }
+                                                isFlipped={ props.isFlipped }
+                                                handleCardClick={ props.handleCardClick }
                                             />
                                         </Col>
                                     )
@@ -40,11 +44,10 @@ const LowestTemps = (props) => {
                                 return null;
                             })
                         }
-                        <Row key="rowNum-1" className="first-row-card">
+                        <Row key="first-row-card" className="first-row-card">
                             {
-                                // props.cities["is_min"] ? <Col>the min</Col> : null
-                                // console.log(props.cities[lowest_temp_city]["main"])
                                 <Col>
+
                                     <TempCard
                                         key={ "cardNum-lowest" }
                                         city={ lowest_temp_city }
@@ -52,12 +55,14 @@ const LowestTemps = (props) => {
                                         scale={ props.tempScale }
                                         loading={ props.loading }
                                         isLowest={ true }
+                                        isFlipped={ props.isFlipped }
+                                        handleCardClick={ props.handleCardClick }
+                                        fontWeight="900"
                                     />
+                                    <h2><Badge pill variant="primary" className="coldestBadge">The Coldest</Badge></h2>
                                 </Col>
+
                             }
-                        </Row>
-                        <br />
-                        <Row className="second-row-card">
                             { other_cities }
                         </Row>
                     </>
