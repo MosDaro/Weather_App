@@ -12,7 +12,7 @@ The Weather App present the coldest weather in Tel-Aviv, Berlin, and Budapest fo
    2. type "virtualenv venv" press enter (it will create a virtual environment directory called venv).
    3. activate virtual environment by typing "source venv/bin/activate" press enter.
 7. type "pip3 install -r requirements.txt (its should install all the python dependencies).
-8. You all set and navigate back to the project directory (weather-app/)
+8. You all set, now navigate back to the project directory (weather-app/)
 ### `Run`
 9.  Type "npm run-script start-api" it will start the restApi.
 10. Open new cmd/terminal and type "npm start" it will open your default browser with the app.
