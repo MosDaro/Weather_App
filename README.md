@@ -10,7 +10,7 @@ The Weather App present the coldest weather in Tel-Aviv, Berlin, and Budapest fo
 6. If you want to install the python dependencies in virtual environment follow this section otherwise skip to 6.
    1. in cmd/terminal type "pip3 install virtualenv" press enter (it will install virtual environment).
    2. type "virtualenv venv" press enter (it will create a virtual environment directory called venv).
-   3. activate virtual environment by typing source "venv/bin/activate" press enter.
+   3. activate virtual environment by typing "source venv/bin/activate" press enter.
 7. type "pip3 install -r requirements.txt (its should install all the python dependencies).
 8. You all set and navigate back to the project directory (weather-app/)
 ### `Run`
