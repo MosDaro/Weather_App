@@ -16,6 +16,8 @@ url = "http://api.openweathermap.org/data/2.5/forecast"
 MAX_INT = sys.maxsize
 
 # TODO add auth
+
+
 @cross_origin()
 @app.route("/get_lowest_temp")
 def get_lowest_temp():
@@ -74,4 +76,4 @@ def set_min_temp_city(min_temp_cities, lowest_temp):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
