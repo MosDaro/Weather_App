@@ -23,7 +23,7 @@ const LowestTemps = (props) => {
                             cities.map(function (name, index) {
                                 if (name === "isFlipped")
                                     return null;
-                                const { main, is_min } = props.cities[name];
+                                const { main, is_min, weather_icon } = props.cities[name];
                                 if (is_min) {
                                     lowest_temp_city = name;
                                 } else {
@@ -33,6 +33,7 @@ const LowestTemps = (props) => {
                                                 key={ "cardNum-" + index }
                                                 city={ name }
                                                 cityInfo={ main }
+                                                weatherIcon={ weather_icon }
                                                 scale={ props.tempScale }
                                                 loading={ props.loading }
                                                 isFlipped={ props.isFlipped }
@@ -52,6 +53,7 @@ const LowestTemps = (props) => {
                                         key={ "cardNum-lowest" }
                                         city={ lowest_temp_city }
                                         cityInfo={ props.cities[lowest_temp_city]["main"] }
+                                        weatherIcon={ props.cities[lowest_temp_city]["weather_icon"] }
                                         scale={ props.tempScale }
                                         loading={ props.loading }
                                         isLowest={ true }

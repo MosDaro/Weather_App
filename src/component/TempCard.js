@@ -7,7 +7,8 @@ const TempCard = (props) => {
     let temp = temp_min;
     let scaleSymbol = props.scale.charAt(0);
     let fontWeight = props.fontWeight;
-
+    let img = "http://openweathermap.org/img/wn/" + props.weatherIcon + "@2x.png"
+    console.log(props.weatherIcon)
 
     // console.log(props.whoFlipped, props.city)
     if (scaleSymbol === "C") { // Celcius
@@ -23,7 +24,7 @@ const TempCard = (props) => {
                 <Card key={ "card" + props.city } id={ props.city } className="card" style={ props.isLowest ? { "opacity": "1.0" } : { "opacity": "0.8" } }>
                     <Card.Body>
                         <Card.Title className="mb-2  text-muted CardTitle">{ props.city }</Card.Title>
-                        <Card.Img src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-24-512.png" alt="N/A" />
+                        <Card.Img src={ img } alt="N/A" />
                         <Card.Text
                             className="mb-2 text-muted"
                             style={ { "position": "absolute", "bottom": "5%", "left": "50%", "transform": "translate(-50%, -50%)" } }
@@ -39,7 +40,7 @@ const TempCard = (props) => {
                     <Card.Body>
                         <Card.Title className="mb-2  text-muted CardTitle">{ props.city }</Card.Title>
                         <Card.Img
-                            src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-24-512.png"
+                            src={ img }
                             alt="N/A"
                             style={ { "opacity": "0.1" } }
                         />
