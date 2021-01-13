@@ -1,4 +1,4 @@
-import { Container, Row, Col, Spinner, Badge } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Badge, Button } from "react-bootstrap";
 import TempScale from "./TempScale";
 import TempCard from "./TempCard";
 
@@ -10,11 +10,12 @@ const LowestTemps = (props) => {
     let lowest_temp_city;
     let other_cities = [];
     let loading = <Spinner animation="border" variant="info" />;
+
     return (
         <div id="card-group">
 
             <TempScale key="temp-scale" tempScaleChange={ props.tempScaleChange } tempScale={ props.tempScale } />
-
+            <Button onClick={ props.refresh } variant="link" className="refresh-button"><i style={ { "fontSize": "24px" } } className="fa">&#xf021;</i></Button>
             <Container key="temp-container" className="cards-container">
                 <br />
                 { props.loading ? loading :
@@ -23,7 +24,7 @@ const LowestTemps = (props) => {
                             cities.map(function (name, index) {
                                 if (name === "isFlipped")
                                     return null;
-                                const { main, is_min } = props.cities[name];
+                                const { main, is_min, weather_icon } = props.cities[name];
                                 if (is_min) {
                                     lowest_temp_city = name;
                                 } else {
@@ -33,6 +34,7 @@ const LowestTemps = (props) => {
                                                 key={ "cardNum-" + index }
                                                 city={ name }
                                                 cityInfo={ main }
+                                                weatherIcon={ weather_icon }
                                                 scale={ props.tempScale }
                                                 loading={ props.loading }
                                                 isFlipped={ props.isFlipped }
@@ -52,6 +54,7 @@ const LowestTemps = (props) => {
                                         key={ "cardNum-lowest" }
                                         city={ lowest_temp_city }
                                         cityInfo={ props.cities[lowest_temp_city]["main"] }
+                                        weatherIcon={ props.cities[lowest_temp_city]["weather_icon"] }
                                         scale={ props.tempScale }
                                         loading={ props.loading }
                                         isLowest={ true }

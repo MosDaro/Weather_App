@@ -21,6 +21,7 @@ MAX_INT = sys.maxsize
 @cross_origin()
 @app.route("/get_lowest_temp")
 def get_lowest_temp():
+
     # the lowest temp city
     lowest_temp = {"city": "", "temp_min": MAX_INT}
 
@@ -28,15 +29,18 @@ def get_lowest_temp():
     min_temp_cities = {
         "Tel-aviv": {
             "main": {"temp_min": MAX_INT},
-            "is_min": False
+            "is_min": False,
+            "weather_icon": ""
         },
         "Berlin": {
             "main": {"temp_min": MAX_INT},
-            "is_min": False
+            "is_min": False,
+            "weather_icon": ""
         },
         "Budapest": {
             "main": {"temp_min": MAX_INT},
-            "is_min": False
+            "is_min": False,
+            "weather_icon": ""
         }
     }
 
@@ -50,6 +54,9 @@ def get_lowest_temp():
 
         # list of current city forecast(5 days, every 3 hours)
         list_res = requests.get(url, params).json()["list"]
+        #
+
+        # min_temp_cities[city]["weather"]
 
         # find the lowest temperature and set the main object
         for forecast in list_res:
@@ -60,6 +67,8 @@ def get_lowest_temp():
             # set the lowest temperature object
             if curr_temp_min < min_temp_cities[city]["main"]["temp_min"]:
                 min_temp_cities[city]["main"] = forecast["main"]
+                min_temp_cities[city]["weather_icon"] = forecast["weather"][0]["icon"]
+
                 if min_temp_cities[city]["main"]["temp_min"] < lowest_temp["temp_min"]:
                     lowest_temp["temp_min"] = min_temp_cities[city]["main"]["temp_min"]
                     lowest_temp["city"] = city
