@@ -18,24 +18,66 @@ h1 {
   max-width: 50%;
 }
 
+.refresh-button{
+  font-size: 24px;
+}
+
 .refresh-button:focus {
   outline: none;
   box-shadow: none;
 }
 
+.cards-container {
+  max-width: 80%;
+}
 
-
+.card {
+  max-width: 100%;
+  overflow: auto
+}
 
 .CardTitle {
   font-size: calc(10px + 2vmin);
 }
 
+.coldest-card-text{
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  font-size: 2.8vmin;
 
+  font-family: "Assistant", "sans-serif";
+}
+
+.frontCardFace{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+@media only screen and (max-width: 850px) {
+  .first-row-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .coldest-card-text{
+    font-size: 4.5vmin !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 850px) {
+  .coldest-card-text {
+    font-size: 50%;
+    max-width: 40%;
+  }
+}
 
 .coldestBadge{
-    background-color: rgb(55, 142, 196);
-    animation: shake 0.5s;
-    animation-iteration-count: 5;
+  background-color: rgb(55, 142, 196);
+  animation: shake 0.5s;
+  animation-iteration-count: 5;
 }
 
 @keyframes shake {
@@ -51,47 +93,4 @@ h1 {
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
-
-@media only screen and (max-width: 850px) {
-  .first-row-card {
-    display: flex;
-    flex-direction: column;
-  }
-  .coldest-card-text{
-    font-size: 4.5vmin !important;
-  }
-}
-
-.cards-container {
-  max-width: 80%;
-}
-
-
-.coldest-card-text{
-  position: absolute;
-  top: 50%;
-  left: 50%; 
-  transform: translate(-50%, -50%);
-  font-size: 2.8vmin;
-
-  font-family: "Assistant", "sans-serif";
-}
-
-.card {
-  max-width: 100%;
-  overflow: auto
-}
-
-
-
-@media only screen and (max-width: 1100px) and (min-width: 850px) {
-  .coldest-card-text {
-    font-size: 50%;
-    max-width: 40%;
-  }
-}
-
-
-
-
 
