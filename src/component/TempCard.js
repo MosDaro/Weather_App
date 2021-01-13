@@ -8,6 +8,7 @@ const TempCard = (props) => {
     let scaleSymbol = props.scale.charAt(0);
     let fontWeight = props.fontWeight;
     let img = "http://openweathermap.org/img/wn/" + props.weatherIcon + "@2x.png"
+
     console.log(props.weatherIcon)
 
     // console.log(props.whoFlipped, props.city)

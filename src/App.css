@@ -18,6 +18,14 @@ h1 {
   max-width: 50%;
 }
 
+.refresh-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+
+
 .CardTitle {
   font-size: calc(10px + 2vmin);
 }

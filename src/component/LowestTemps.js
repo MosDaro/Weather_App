@@ -14,7 +14,8 @@ const LowestTemps = (props) => {
         <div id="card-group">
 
             <TempScale key="temp-scale" tempScaleChange={ props.tempScaleChange } tempScale={ props.tempScale } />
-            <Button onClick={ props.refresh }>Refresh</Button>
+            <Button onClick={ props.refresh } variant="link" className="refresh-button"><i style={ { "font-size": "24px" } } className="fa">&#xf021;</i></Button>
+
             <Container key="temp-container" className="cards-container">
                 <br />
                 { props.loading ? loading :
