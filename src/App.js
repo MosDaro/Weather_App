@@ -8,7 +8,7 @@ class App extends Component {
     cities: {},
     tempScale: "Kelvin",
     loading: true,
-    isFlipped: ""
+    isFlipped: "",
   }
 
   componentDidMount() {

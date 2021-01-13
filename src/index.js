@@ -8,7 +8,7 @@ import Snowfall from 'react-snowfall'
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <div style={ { height: 400, width: 400, background: '#282c34' } }>
+    <div style={ { "height": "100%", "width": "100%", "background": '#282c34' } }>
       <Snowfall />
     </div>
   </React.StrictMode>,

@@ -6,10 +6,7 @@ const TempCard = (props) => {
     const { temp_min } = props.cityInfo
     let temp = temp_min;
     let scaleSymbol = props.scale.charAt(0);
-    let fontWeight = props.fontWeight;
     let img = "http://openweathermap.org/img/wn/" + props.weatherIcon + "@2x.png"
-
-    console.log(props.weatherIcon)
 
     // console.log(props.whoFlipped, props.city)
     if (scaleSymbol === "C") { // Celcius
@@ -18,6 +15,7 @@ const TempCard = (props) => {
         temp = (temp_min - 273.15) * 9.0 / 5.0 + 32;
     }
     props.cityInfo["city"] = props.city;
+    let text = JSON.stringify(props.cityInfo).replace(/,/g, " ,").replace(/{|}/g, "").replace(/"/g, "").replace(/:/g, ": ").split(",")
     let flipData = JSON.stringify(props.cityInfo).replace(/,/g, "\n").replace(/{|}/g, "").replace(/"/g, "").replace(/:/g, ": ");
     return (
         <>
@@ -38,15 +36,17 @@ const TempCard = (props) => {
 
 
                 <Card key={ "card" + props.city } className="card" style={ props.isLowest ? { "opacity": "1.0" } : { "opacity": "0.8" } }>
+                    <Card.Title className="mb-2 text-muted CardTitle">{ props.city }</Card.Title>
+
                     <Card.Body>
-                        <Card.Title className="mb-2 text-muted CardTitle">{ props.city }</Card.Title>
                         <Card.Img src={ img } alt="N/A" style={ { "opacity": "0.1" } } />
                         <Card.Text
-                            className="mb-2 text-dark coldest-card-text" style={ { "fontWeight": fontWeight } }>
-                            { flipData }
+                            className="mb-2 text-dark coldest-card-text" style={ { "fontWeight": props.fontWeight } }>
+                            { text }
                         </Card.Text>
                     </Card.Body>
-                    <Button variant="light" onClick={ props.handleCardClick }>Flip</Button>
+                    <Button className="cardButton" variant="light" onClick={ props.handleCardClick } >Flip</Button>
+
                 </Card>
 
             </ReactCardFlip>

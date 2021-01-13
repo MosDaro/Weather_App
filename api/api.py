@@ -21,6 +21,7 @@ MAX_INT = sys.maxsize
 @cross_origin()
 @app.route("/get_lowest_temp")
 def get_lowest_temp():
+
     # the lowest temp city
     lowest_temp = {"city": "", "temp_min": MAX_INT}
 
