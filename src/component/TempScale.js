@@ -1,5 +1,6 @@
 import { ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 
+// temperature scale buttons
 const TempScale = (prop) => {
     const { tempScale } = prop;
     return (
@@ -18,4 +19,3 @@ const TempScale = (prop) => {
 };
 
 export default TempScale;
-

@@ -13,6 +13,12 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchWeather();
+  };
+
+
+  fetchWeather = () => {
+    // get the waether data
     fetch(env.API_URL, {
       method: 'GET',
       headers: { 'Authorization': 'Basic ' + btoa(env.API_USER + ":" + env.API_PASSWORD) }
@@ -21,38 +27,38 @@ class App extends Component {
         if (!response.ok)
           throw Error(response.statusText);
         return response.json()
-      }).then(response => {
+      })
+      .then(response => {
         this.setState({
           ...this.state.cities,
           cities: response,
           loading: false
         });
-      }
-      ).catch((error) => {
+      })
+      .catch((error) => {
         console.error('Error:', error);
       });
+  }
 
-  };
-
+  // change the temp scale
   tempScaleChange = (event) => {
-    this.setState({
-      tempScale: event
-    });
+    this.setState({ tempScale: event });
   };
 
+  // card flip, remember which card is flipped
   handleCardClick = (event) => {
     event.preventDefault();
     let parent = event.target.parentNode.id;
+
     this.setState(prevState => ({
       isFlipped: prevState.isFlipped !== parent ? parent : ""
     }));
   };
 
+  // refresh the cards info
   refresh = () => {
-    this.setState({ loading: true })
-    setTimeout(() => {
-      this.setState({ loading: false })
-    }, 100);
+    this.setState({ loading: true }); // display loading spinner
+    this.fetchWeather(); // fetch data again
   };
 
   render() {
@@ -71,7 +77,6 @@ class App extends Component {
       </div>
     );
   }
-
 };
 
 export default App;
