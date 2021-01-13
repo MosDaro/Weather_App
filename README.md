@@ -16,6 +16,6 @@ The Weather App presents the coldest weather in Tel-Aviv, Berlin, and Budapest f
 ### `Run`
 9. if you install python dependecies in virtual eviroment run in windows "npm run-script start-api-venv-win" in unix/linux "npm run-script start-api-venv-x", otherwise run in windows "npm run-script start-api-win" unix/linux "npm run-script start-api-x" it will start the restApi. 
 10. Open new cmd/terminal in the project directory and type "npm start" it will open your default browser with the app.
-11. The server will run on port 5000 and the UI will run on port 3000 (server get request require user and password that stored in dotenv file).
+11. The server will run on port 5000 and the UI will run on port 3000 (server get request require user and password admin:IBM).
 12. Have Fun :smiley:
 
