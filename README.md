@@ -1,7 +1,7 @@
 # Weather App
 ## Description:
 The Weather App present the coldest weather in Tel-Aviv, Berlin, and Budapest for the next five days and markup which is the coldest.
-### `instalation`
+### `instalation` (internet connection required)
 1. Download and install Node.js v14 https://nodejs.org/en/
 2. Navigate into the project directory weather-app/
 3. Open cmd/terminal and type "npm install" (it should install all the node dependencies)
