@@ -2,6 +2,7 @@ import { Card, Button } from 'react-bootstrap';
 import ReactCardFlip from 'react-card-flip';
 
 
+
 const TempCard = (props) => {
     const { temp_min } = props.cityInfo
     let temp = temp_min;
@@ -15,8 +16,8 @@ const TempCard = (props) => {
         temp = (temp_min - 273.15) * 9.0 / 5.0 + 32;
     }
     props.cityInfo["city"] = props.city;
-    let text = JSON.stringify(props.cityInfo).replace(/,/g, " ,").replace(/{|}/g, "").replace(/"/g, "").replace(/:/g, ": ").split(",")
-    let flipData = JSON.stringify(props.cityInfo).replace(/,/g, "\n").replace(/{|}/g, "").replace(/"/g, "").replace(/:/g, ": ");
+    let flipData = JSON.stringify(props.cityInfo).replace(/,/g, " ,").replace(/{|}/g, "").replace(/"/g, "").replace(/:/g, ": ").split(",")
+
     return (
         <>
             <ReactCardFlip isFlipped={ props.isFlipped === props.city } flipDirection="vertical">
@@ -42,7 +43,7 @@ const TempCard = (props) => {
                         <Card.Img src={ img } alt="N/A" style={ { "opacity": "0.1" } } />
                         <Card.Text
                             className="mb-2 text-dark coldest-card-text" style={ { "fontWeight": props.fontWeight } }>
-                            { text }
+                            { flipData }
                         </Card.Text>
                     </Card.Body>
                     <Button className="cardButton" variant="light" onClick={ props.handleCardClick } >Flip</Button>

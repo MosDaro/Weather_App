@@ -2,6 +2,7 @@ import { Component } from "react"
 import './App.css';
 import Header from './component/Header';
 import LowestTemps from './component/LowestTemps';
+import env from "react-dotenv";
 
 class App extends Component {
   state = {
@@ -12,19 +13,25 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/get_lowest_temp")
-      .then(
-        response => response.json()
-      ).then(
-        response => {
+    fetch(env.API_URL, {
+      method: 'GET',
+      headers: { 'Authorization': 'Basic ' + btoa(env.API_USER + ":" + env.API_PASSWORD) }
+    })
+      .then((response) => {
+        if (!response.ok)
+          throw Error(response.statusText);
+        return response.json()
+      }).then(response => {
+        this.setState({
+          ...this.state.cities,
+          cities: response,
+          loading: false
+        });
+      }
+      ).catch((error) => {
+        console.error('Error:', error);
+      });
 
-          this.setState({
-            ...this.state.cities,
-            cities: response,
-            loading: false
-          });
-        }
-      );
   };
 
   tempScaleChange = (event) => {

@@ -14,7 +14,7 @@ The Weather App present the coldest weather in Tel-Aviv, Berlin, and Budapest fo
 7. type "pip3 install -r requirements.txt (its should install all the python dependencies).
 8. You all set, now navigate back to the project directory (weather-app/)
 ### `Run`
-9.  Type "npm run-script start-api" it will start the restApi.
+9. if you install python dependecies in virtual eviroment run "npm run-script start-api-venv" otherwise run "npm run-script start-api" it will start the restApi. 
 10. Open new cmd/terminal and type "npm start" it will open your default browser with the app.
 11. The server will run on port 5000 and the UI will run on port 3000
 12. Have Fun :smiley:
