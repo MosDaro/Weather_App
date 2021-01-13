@@ -1,4 +1,4 @@
-import { Container, Row, Col, Spinner, Badge } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Badge, Button } from "react-bootstrap";
 import TempScale from "./TempScale";
 import TempCard from "./TempCard";
 
@@ -14,7 +14,7 @@ const LowestTemps = (props) => {
         <div id="card-group">
 
             <TempScale key="temp-scale" tempScaleChange={ props.tempScaleChange } tempScale={ props.tempScale } />
-
+            <Button onClick={ props.refresh }>Refresh</Button>
             <Container key="temp-container" className="cards-container">
                 <br />
                 { props.loading ? loading :

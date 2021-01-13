@@ -38,19 +38,10 @@ const TempCard = (props) => {
 
                 <Card key={ "card" + props.city } className="card" style={ props.isLowest ? { "opacity": "1.0" } : { "opacity": "0.8" } }>
                     <Card.Body>
-                        <Card.Title className="mb-2  text-muted CardTitle">{ props.city }</Card.Title>
-                        <Card.Img
-                            src={ img }
-                            alt="N/A"
-                            style={ { "opacity": "0.1" } }
-                        />
+                        <Card.Title className="mb-2 text-muted CardTitle">{ props.city }</Card.Title>
+                        <Card.Img src={ img } alt="N/A" style={ { "opacity": "0.1" } } />
                         <Card.Text
-                            className="mb-2 text-dark"
-                            style={ {
-                                "position": "absolute", "top": "50%", "left": "50%", "transform": "translate(-50%, -50%)",
-                                "fontSize": "2.8vmin", "fontFamily": "Assistant, sans-serif", "fontWeight": fontWeight
-                            } }
-                        >
+                            className="mb-2 text-dark coldest-card-text" style={ { "fontWeight": fontWeight } }>
                             { flipData }
                         </Card.Text>
                     </Card.Body>
